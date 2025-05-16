@@ -1,30 +1,36 @@
-import os
+from crewai.tools import BaseTool
 import requests
-import json
-from dotenv import load_dotenv
+import time
 
-load_dotenv()
+class NumVerifyTool(BaseTool):
+    name: str = "Validador de Número"
+    description: str = "Valida números de telefone e retorna informações como país e operadora."
 
-class NumVerifyTool:
+    time.sleep(90)
     def _run(self, number: str = "+5511987654321") -> str:
-        api_key = os.getenv("NUMVERIFY_KEY")
         response = requests.get(
-            f"http://apilayer.net/api/validate?access_key={api_key}&number={number}&format=1"
+            f"http://apilayer.net/api/validate?access_key=5a88cad60f9af373b7956c75bf2edcc1&number={number}&country_code=&format=1"
         )
-        return json.dumps(response.json(), indent=2, ensure_ascii=False)
+        return str(response.json())
 
-class IpStackTool:
+class IpStackTool(BaseTool):
+    name: str = "Localizador de IP"
+    description: str = "Retorna informações sobre um endereço IP, como país e cidade."
+
+    time.sleep(90)
     def _run(self, ip: str = "187.75.194.108") -> str:
-        api_key = os.getenv("IPSTACK_KEY")
         response = requests.get(
-            f"http://api.ipstack.com/{ip}?access_key={api_key}"
+            f"http://api.ipstack.com/{ip}?access_key=a0545fb3d3ff99ba311868fbe42b1a8b"
         )
-        return json.dumps(response.json(), indent=2, ensure_ascii=False)
+        return str(response.json())
 
-class MarketStackTool:
+class MarketStackTool(BaseTool):
+    name: str = "Consulta de Ações"
+    description: str = "Retorna dados de mercado de ações para uma empresa específica."
+
+    time.sleep(90)
     def _run(self, symbol: str = "AAPL") -> str:
-        api_key = os.getenv("MARKETSTACK_KEY")
         response = requests.get(
-            f"http://api.marketstack.com/v1/eod?access_key={api_key}&symbols={symbol}"
+            f"http://api.marketstack.com/v1/eod?access_key=a2dd96156ae00e4e779c77c4f0f95d31&symbols={symbol}"
         )
-        return json.dumps(response.json(), indent=2, ensure_ascii=False)
+        return str(response.json())
