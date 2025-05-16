@@ -1,6 +1,7 @@
 # ✅ Projeto CrewAI
 
 Este projeto usa CrewAI, totalmente compatível com a versão atual da biblioteca.
+gera um arquivo no estilo relatório que apresenta informações de um IP, telefone e ação espécífica
 
 ## APIs usadas
 
