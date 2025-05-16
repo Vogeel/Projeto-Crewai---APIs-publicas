@@ -1,6 +1,6 @@
-# ✅ Projeto CrewAI Corrigido - Sem BaseTool
+# ✅ Projeto CrewAI
 
-Este projeto usa CrewAI com ferramentas no novo formato `CrewTool`, totalmente compatível com a versão atual da biblioteca.
+Este projeto usa CrewAI, totalmente compatível com a versão atual da biblioteca.
 
 ## APIs usadas
 
@@ -11,8 +11,8 @@ Este projeto usa CrewAI com ferramentas no novo formato `CrewTool`, totalmente c
 ## Como executar
 
 ```bash
-python -m venv venv
-venv\Scripts\activate  # ou source venv/bin/activate
+python -m venv venv `Utilizar python 3.12`
+venv\Scripts\activate
 pip install -r requirements.txt
 python main.py
 ```
