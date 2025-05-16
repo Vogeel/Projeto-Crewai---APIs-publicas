@@ -8,6 +8,8 @@ Este projeto usa CrewAI, totalmente compatível com a versão atual da bibliotec
 - IpStack: Localização de IP
 - MarketStack: Dados de ações
 
+`Obs: Deixar KEYS das APIs dentro do arquivo .env`
+
 ## Como executar
 
 ```bash
