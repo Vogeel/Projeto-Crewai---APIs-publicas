@@ -8,16 +8,23 @@ print("🔧 Inicializando...")
 # Instanciar ferramentas
 tools = [NumVerifyTool(), IpStackTool(), MarketStackTool()]
 
-# Criar agente com as ferramentas
-analista = AgentFactory.get_agent(tools)
+# Criar agentes com suas respectivas ferramentas
+phone_agent = AgentFactory.get_phone_agent(tools)
+ip_agent = AgentFactory.get_ip_agent(tools)
+stock_agent = AgentFactory.get_stock_agent(tools)
 
-# Criar tarefas
-tarefas = TaskFactory.get_tasks(analista)
+# Criar tarefas para cada agente
+tasks = TaskFactory.get_tasks(phone_agent, ip_agent, stock_agent)
 
 # Criar equipe e executar
-crew = Crew(agents=[analista], tasks=tarefas, verbose=True)
-print("🚀 Executando tarefa...")
+crew = Crew(
+    agents=[phone_agent, ip_agent, stock_agent],
+    tasks=tasks,
+    verbose=True,
+    max_iterations=1
+)
+
+print("🚀 Executando tarefas...")
 resultado = crew.kickoff()
 
-print("\n✅ Resultado Final:")
-print(resultado)
+print("\n✅ Resultados das tarefas em output/")

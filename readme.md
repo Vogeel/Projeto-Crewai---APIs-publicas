@@ -14,10 +14,10 @@ gera um arquivo no estilo relatório que apresenta informações de um IP, telef
 ## Como executar
 
 ```bash
-python -m venv venv `Utilizar python 3.12`
+py -3.1 -m venv venv `Utilizar python 3.12`
 venv\Scripts\activate
 pip install -r requirements.txt
 python main.py
 ```
 
-Resultado final salvo em: `output/resultado_final.txt`
+Resultado final salvo em: `output/.txt`
